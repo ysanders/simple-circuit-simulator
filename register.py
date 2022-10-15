@@ -1,3 +1,5 @@
+import numpy as np
+
 class QuantumRegister:
 
     def __init__(self, length : int, initial_state=None):

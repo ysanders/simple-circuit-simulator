@@ -1,6 +1,7 @@
 import unittest
 import numpy as np
 from gates import pauli, ionq_native
+from register import QuantumRegister
 
 class TestPauliMatrices(unittest.TestCase):
 
@@ -54,4 +55,17 @@ class TestIonQGates(unittest.TestCase):
                                     ionq_native.MS(0, period)))
         self.assertTrue(np.allclose(ionq_native.MS(0, 0),
                                     ionq_native.MS(period, period)))
+
+
+
+class TestQuantumCircuit(unittest.TestCase):
+
+    def test_length(self):
+        one_qubit_register = QuantumRegister(1)
+        self.assertEqual(len(one_qubit_register), 1)
+        self.assertEqual(len(one_qubit_register.state), 2)
+
+        two_qubit_register = QuantumRegister(2)
+        self.assertEqual(len(two_qubit_register), 2)
+        self.assertEqual(len(two_qubit_register.state), 4)
 
