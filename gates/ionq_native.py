@@ -17,5 +17,5 @@ def RZ(theta : float):
 def MS(phi_0 : float, phi_1 : float):
     return np.array([[1, 0, 0, -1j * np.exp(-1j * (phi_0 + phi_1))],
                      [0, 1, -1j * np.exp(-1j * (phi_0 - phi_1)), 0],
-                     [0, -1j * np.exp(-1j * (phi_0 - phi_1)), 1, 0],
+                     [0, -1j * np.exp( 1j * (phi_0 - phi_1)), 1, 0],
                      [-1j * np.exp( 1j * (phi_0 + phi_1)), 0, 0, 1]]) / np.sqrt(2)
