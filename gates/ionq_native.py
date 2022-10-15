@@ -28,7 +28,7 @@ class GeneralPi(QuantumGate):
     def __init__(self, angle):
         self.angle = angle
         self.matrix = GPI(angle)
-        self.no_qubits = 1
+        self.num_qubits = 1
 
     def __repr__(self):
         return f"GPI({self.angle:.4f})"
@@ -38,7 +38,7 @@ class GeneralPi2(QuantumGate):
     def __init__(self, angle):
         self.angle = angle
         self.matrix = GPI2(angle)
-        self.no_qubits = 1
+        self.num_qubits = 1
 
     def __repr__(self):
         return f"GPI2({self.angle:.4f})"
@@ -48,7 +48,7 @@ class VirtualZ(QuantumGate):
     def __init__(self, angle):
         self.angle = angle
         self.matrix = RZ(angle)
-        self.no_qubits = 1
+        self.num_qubits = 1
 
     def __repr__(self):
         return f"RZ({self.angle:.4f})"
@@ -59,7 +59,7 @@ class MolmerSorensen(QuantumGate):
         self.angle_0 = angle_0
         self.angle_1 = angle_1
         self.matrix = MS(angle_0, angle_1)
-        self.no_qubits = 2
+        self.num_qubits = 2
 
     def __repr__(self):
         return f"MS({self.angle_0:.4f}, {self.angle_1:.4f})"
