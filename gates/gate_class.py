@@ -12,6 +12,9 @@ class QuantumGate:
         assert int(num_qubits) == num_qubits
         self.num_qubits = int(num_qubits)
 
+        # assume multiqubit gates do NOT commute with swaps
+        self.ordered = (self.num_qubits > 1) 
+
         self.matrix = matrix
 
     def __repr__(self):
