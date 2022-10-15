@@ -20,6 +20,10 @@ class QuantumRegister:
             chars = set(initial_state); bits = {'0', '1'}
             assert chars.union(bits) is bits
 
+           # Now we can safely add the 1 to the state vector.
+            addr = int('0b' + initial_state, 2)
+            self.state[addr] = 1
+
     def __len__(self):
         return len(self.state)
 
