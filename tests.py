@@ -69,3 +69,30 @@ class TestQuantumCircuit(unittest.TestCase):
         self.assertEqual(len(two_qubit_register), 2)
         self.assertEqual(len(two_qubit_register.state), 4)
 
+    def test_initial_state(self):
+        state_00 = np.array([1, 0, 0, 0])
+        state_01 = np.array([0, 1, 0, 0])
+        state_10 = np.array([0, 0, 1, 0])
+        state_11 = np.array([0, 0, 0, 1])
+
+        basic_init = QuantumRegister(2)
+        init_0 = QuantumRegister(2, initial_state=0)
+        init_1 = QuantumRegister(2, initial_state=1)
+        init_2 = QuantumRegister(2, initial_state=2)
+        init_3 = QuantumRegister(2, initial_state=3)
+        init_00 = QuantumRegister(2, initial_state='00')
+        init_01 = QuantumRegister(2, initial_state='01')
+        init_10 = QuantumRegister(2, initial_state='10')
+        init_11 = QuantumRegister(2, initial_state='11')
+
+        self.assertTrue(np.allclose(basic_init.state, state_00))
+
+        self.assertTrue(np.allclose(init_0.state, state_00))
+        self.assertTrue(np.allclose(init_1.state, state_01))
+        self.assertTrue(np.allclose(init_2.state, state_10))
+        self.assertTrue(np.allclose(init_3.state, state_11))
+ 
+        self.assertTrue(np.allclose(init_00.state, state_00))
+        self.assertTrue(np.allclose(init_01.state, state_01))
+        self.assertTrue(np.allclose(init_10.state, state_10))
+        self.assertTrue(np.allclose(init_11.state, state_11))

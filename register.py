@@ -21,7 +21,7 @@ class QuantumRegister:
             # of the form, e.g., '10' rather than '0b10',
             # which is the output of bin(2).
             chars = set(initial_state); bits = {'0', '1'}
-            assert chars.union(bits) is bits
+            assert chars.union(bits) == bits
 
            # Now we can safely add the 1 to the state vector.
             addr = int('0b' + initial_state, 2)
