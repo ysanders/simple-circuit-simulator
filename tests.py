@@ -1,6 +1,6 @@
 import unittest
 import numpy as np
-from gates import pauli
+from gates import pauli, ionq_native
 
 class TestPauliMatrices(unittest.TestCase):
 
@@ -26,4 +26,32 @@ class TestPauliMatrices(unittest.TestCase):
         self.assertEqual(np.trace(pauli.Y), 0)
         self.assertEqual(np.trace(pauli.Z), 0)
 
+class TestIonQGates(unittest.TestCase):
+
+    def test_shapes(self):
+        self.assertEqual(np.shape(ionq_native.GPI(0)), (2, 2))
+        self.assertEqual(np.shape(ionq_native.GPI2(0)), (2, 2))
+        self.assertEqual(np.shape(ionq_native.RZ(0)), (2, 2))
+        self.assertEqual(np.shape(ionq_native.MS(0, 0)), (4, 4))
+
+    def test_periodicity(self):
+        period = 4 * np.pi # NOT 2 * np.pi
+
+        # single-qubit gates
+        self.assertTrue(np.allclose(ionq_native.GPI(0),
+                                    ionq_native.GPI(period)))
+        self.assertTrue(np.allclose(ionq_native.GPI2(0),
+                                    ionq_native.GPI2(period)))
+        self.assertTrue(np.allclose(ionq_native.RZ(0),
+                                    ionq_native.RZ(period)))
+
+        # two-qubit gates
+        self.assertTrue(np.allclose(ionq_native.MS(0, 0),
+                                    ionq_native.MS(period, 0)))
+        self.assertTrue(np.allclose(ionq_native.MS(0, 0),
+                                    ionq_native.MS(period, 0)))
+        self.assertTrue(np.allclose(ionq_native.MS(0, 0),
+                                    ionq_native.MS(0, period)))
+        self.assertTrue(np.allclose(ionq_native.MS(0, 0),
+                                    ionq_native.MS(period, period)))
 
