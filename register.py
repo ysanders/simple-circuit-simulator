@@ -1,13 +1,14 @@
 class QuantumRegister:
 
     def __init__(self, length : int, initial_state=None):
-        self.state = np.zeros(length)
+        self._len = length
+        self.state = np.zeros(2 ** length)
 
         if initial_state is None: # assume initial state is 0
             self.state[0] = 1
 
         elif type(initial_state) is int:
-            assert initial_state >= 0 and initial_state < length
+            assert initial_state >= 0 and initial_state < 2 ** length
             self.state[initial_state] = 1
 
         else: # assume initial_state is binary string
@@ -25,7 +26,7 @@ class QuantumRegister:
             self.state[addr] = 1
 
     def __len__(self):
-        return len(self.state)
+        return self._len
 
     def __repr__(self):
         return "QuantumRegister({})".format(len(self))
