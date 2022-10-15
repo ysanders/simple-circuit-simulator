@@ -1,15 +1,13 @@
-def I:
-    return np.array([[1, 0],
-                     [0, 1]])
+import numpy as np
 
-def X:
-    return np.array([[0, 1],
-                     [1, 0]])
+I = np.array([[1, 0],
+              [0, 1]])
 
-def Y:
-    return np.array([[0, -1j], 
-                     [1j, 0]])
+X = np.array([[0, 1],
+              [1, 0]])
 
-def Z:
-    return np.array([[1, 0],
-                     [0, -1]])
+Y = np.array([[0, -1j],
+              [1j, 0]])
+
+Z = np.array([[1, 0],
+              [0, -1]])
