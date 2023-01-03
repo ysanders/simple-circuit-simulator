@@ -2,7 +2,7 @@ import numpy as np
 
 class QuantumGate:
 
-    def __init__(self, matrix, name=None):
+    def __init__(self, matrix : np.ndarray, name=None):
         self.name = name
 
         assert len(matrix.shape) == 2

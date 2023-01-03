@@ -15,7 +15,7 @@ class QuantumRegister:
 
         else: # assume initial_state is binary string
             assert type(initial_state) is str
-            assert len(initial_state) is length
+            assert len(initial_state) <= length
 
             # The following asserts that initial_state is
             # of the form, e.g., '10' rather than '0b10',
