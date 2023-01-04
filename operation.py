@@ -1,5 +1,5 @@
 import numpy as np
-from .gates.gate_class import QuantumGate
+from .gate import QuantumGate
 from .register import QuantumRegister
 
 def validate_register_locations(locations : tuple,
