@@ -1,5 +1,6 @@
 import numpy as np
-from .gate_class import QuantumGate, IdentityGate
+from ..gate import QuantumGate
+from .basic import IdentityGate
 
 I = IdentityGate(1)
 X = QuantumGate(np.array([[0, 1], [1, 0]]), name="X")

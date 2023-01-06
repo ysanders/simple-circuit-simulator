@@ -1,3 +1,6 @@
+from ..gate import QuantumGate
+import numpy as np
+
 def IdentityGate(num_qubits):
     matrix = np.identity(2 ** num_qubits)
     name = f"IdentityGate({num_qubits})"
