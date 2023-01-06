@@ -1,7 +1,7 @@
 # see: https://ionq.com/docs/getting-started-with-native-gates
 
 import numpy as np
-from ..gate import QuantumGate
+from .gate import QuantumGate
 
 class GPI(QuantumGate):
     def __init__(self, phi):

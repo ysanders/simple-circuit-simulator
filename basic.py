@@ -1,4 +1,4 @@
-from ..gate import QuantumGate
+from .gate import QuantumGate
 import numpy as np
 
 def IdentityGate(num_qubits):

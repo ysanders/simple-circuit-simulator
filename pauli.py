@@ -1,5 +1,5 @@
 import numpy as np
-from ..gate import QuantumGate
+from .gate import QuantumGate
 from .basic import IdentityGate
 
 I = IdentityGate(1)
