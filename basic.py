@@ -1,4 +1,4 @@
-from .gate import QuantumGate
+from gate import QuantumGate
 import numpy as np
 
 def IdentityGate(num_qubits):
@@ -19,3 +19,11 @@ def RotationGate(theta):
                        [np.sin(theta),  np.cos(theta)]])
     name = f"Rotation({theta:.3f})"
     return QuantumGate(matrix, name=name)
+
+PauliX = QuantumGate(np.array([[ 0,   1],
+                               [ 1,   0]]), name="X")
+PauliY = QuantumGate(np.array([[ 0, -1j],
+                               [1j,   0]]), name="Y")
+PauliZ = QuantumGate(np.array([[ 1,   0],
+                               [ 0,  -1]]), name="Z")
+
